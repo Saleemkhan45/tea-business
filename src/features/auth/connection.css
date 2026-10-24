@@ -1,0 +1,4 @@
+.auth-session-state { min-height: 100dvh; display: grid; place-items: center; padding: 20px; }
+.auth-connection-banner { display: flex; align-items: center; gap: 12px; padding: 10px 18px; border-bottom: 1px solid var(--line); background: var(--panel); color: var(--ink); font-size: 13px; line-height: 1.5; flex-wrap: wrap; }
+.auth-connection-banner > span { flex: 1; min-width: 180px; overflow-wrap: anywhere; }
+.auth-connection-banner .ui-button { min-height: 44px; margin-left: auto; }

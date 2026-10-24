@@ -1,0 +1,8 @@
+.operation-success-toast { position: fixed; z-index: 110; right: 24px; bottom: 24px; display: flex; align-items: center; gap: 10px; width: max-content; max-width: min(420px, calc(100vw - 32px)); padding: 14px 16px; border: 1px solid #a9ddc0; border-radius: 8px; color: #145e40; background: #e9f8f0; box-shadow: var(--shadow-md); font-size: 13px; }
+.operation-success-toast > svg, .operation-success-toast button { flex: none; }
+.operation-success-toast span { min-width: 0; overflow-wrap: anywhere; }
+.operation-success-toast button { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 4px; }
+.operation-success-toast button:hover, .operation-success-toast button:focus-visible { background: #cdeedc; }
+html[data-theme='dark'] .operation-success-toast { color: #b9eed3; background: #173b2c; border-color: #33674e; }
+html[data-theme='dark'] .operation-success-toast button:hover { background: #28503d; }
+@media (max-width: 600px) { .operation-success-toast { right: 16px; bottom: 16px; left: 16px; width: auto; } }

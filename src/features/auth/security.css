@@ -1,0 +1,55 @@
+.authorization-overlay { position: fixed; inset: 0; z-index: 10000; background: rgb(0 0 0 / .48); display: grid; place-items: center; padding: 16px; }
+.authorization-dialog { width: min(420px,100%); max-height: calc(100dvh - 32px); overflow: auto; background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 14px; padding: 24px; box-shadow: 0 24px 80px rgb(0 0 0 / .2); }
+.authorization-dialog h2 { margin: 0 0 10px; font-size: 20px; }
+.authorization-dialog p { font-size: 14px; line-height: 1.5; }
+.authorization-dialog label, .security-password-form label { display: grid; gap: 7px; margin: 14px 0; font-size: 14px; }
+.authorization-dialog input, .security-password-form input { width: 100%; min-height: 44px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 8px; padding: 10px 12px; box-sizing: border-box; }
+.authorization-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 22px; }
+.authorization-action { overflow-wrap: anywhere; color: var(--muted); }
+.security-password-form { max-width: 440px; }
+.security-password-form select { min-height: 44px; width: 100%; max-width: 100%; padding: 10px 12px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 8px; }
+.account-security-panel p, .settings-panel:has(.security-password-form) > p { color: var(--muted); font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
+.account-details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.account-details dt { color: var(--muted); font-size: 12px; margin-bottom: 6px; }
+.account-details dd { margin: 0; color: var(--ink); font-size: 14px; overflow-wrap: anywhere; }
+.account-session-list { list-style: none; padding: 0; display: grid; gap: 10px; max-height: 280px; overflow-y: auto; }
+.account-session-list li { padding: 14px; display: grid; gap: 6px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; }
+.account-session-list small, .account-session-list span { color: var(--muted); overflow-wrap: anywhere; }
+.security-info { padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.security-password-form input:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+@media (max-width: 600px) { .account-details { grid-template-columns: minmax(0, 1fr); }.security-password-form .ui-button { width: 100%; min-height: 44px; justify-content: center; } }
+.security-password-control { position: relative; display: block; min-width: 0; }
+.security-password-control input { padding-right: 48px; }
+.security-password-toggle { position: absolute; right: 1px; top: 50%; transform: translateY(-50%); display: grid; place-items: center; width: 44px; height: 44px; color: var(--muted); border-radius: 6px; }
+.security-password-toggle:hover:not(:disabled) { color: var(--ink); background: var(--surface, #f4f7fb); }
+.security-password-toggle:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+.security-password-toggle:disabled { cursor: default; opacity: .5; }
+.trusted-view-banner { margin: 0; padding: 8px 16px; border-bottom: 1px solid var(--line); color: var(--ink); background: var(--panel); font-size: 12px; }
+
+.account-security-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 20px; min-width: 0; }
+.account-security-grid .account-security-card { margin: 0; min-width: 0; border-radius: 14px; padding: 22px; }
+.security-card-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.security-card-heading>span { display: grid; place-items: center; width: 42px; height: 42px; flex: none; border-radius: 12px; color: #2563eb; background: #2563eb12; }
+.security-card-heading h2 { font-size: 17px; margin: 0 0 5px; }
+.security-card-heading p { margin: 0; color: var(--muted); font-size: 12px; }
+.account-security-card>p { font-size: 13px; line-height: 1.7; color: var(--muted); }
+.account-security-card .security-password-form { max-width: none; }
+.account-security-card .security-password-form label { font-size: 12px; margin: 14px 0; min-width: 0; }
+.account-security-card .security-password-form input, .account-security-card .security-password-form select { min-height: 46px; font-size: 14px; }
+.account-security-card .ui-button { min-height: 44px; }
+.account-security-card .security-password-form>.ui-button { width: 100%; justify-content: center; }
+.account-security-card .account-details { margin: 20px 0; gap: 18px 14px; }
+.security-detail-wide { grid-column: 1 / -1; }
+.account-profile-editor { border-top: 1px solid var(--line); padding-top: 12px; }
+.account-profile-editor summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; color: var(--blue, #2563eb); font-size: 13px; }
+.security-feedback { padding: 12px 14px; border: 1px solid var(--line); border-radius: 9px; line-height: 1.7; font-size: 13px; overflow-wrap: anywhere; }
+.security-feedback p { margin: 0 0 8px; }
+.security-feedback.error { color: var(--danger, #b42318); border-color: #d45e5e66; background: #d45e5e0a; }
+.security-feedback.success { color: var(--ink); border-color: #22a77766; background: #22a7770a; }
+.security-feedback.info { color: var(--ink); border-color: #377dff44; background: #377dff08; }
+.security-session-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; font-size: 12px; color: var(--muted); }
+.security-session-summary strong { display: block; margin-top: 7px; color: var(--ink); font-weight: 600; }
+.account-security-card .account-session-list { max-height: 200px; }
+.account-security-card :is(button, summary, select):focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+@media (max-width: 1100px) { .account-security-grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 600px) { .account-security-grid { gap: 14px; } .account-security-grid .account-security-card { padding: 18px 16px; } .security-session-summary { grid-template-columns: minmax(0, 1fr); } }

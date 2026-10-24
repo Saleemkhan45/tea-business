@@ -1,0 +1,16 @@
+import type { PurchaseRecord } from '../types/purchases'
+
+export const purchasesMockData: PurchaseRecord[] = [
+  { id: 'purchase-0001', purchaseNumber: 12, date: '2024-06-25', region: 'Swat', supplier: 'Mountain Leaf Co.', teaType: 'Green Tea', quantityKg: 500, costPerKg: 600, taxAmount: 0, discountAmount: 0, shippingAmount: 0, totalCost: 300000, status: 'Received' },
+  { id: 'purchase-0002', purchaseNumber: 11, date: '2024-06-25', region: 'Chitral', supplier: 'Chitral Harvest', teaType: 'Black Tea', quantityKg: 300, costPerKg: 1600, taxAmount: 0, discountAmount: 0, shippingAmount: 0, totalCost: 480000, status: 'Received' },
+  { id: 'purchase-001', purchaseNumber: 10, date: '2024-06-24', region: 'Swat', supplier: 'Mountain Leaf Co.', teaType: 'Green Tea', quantityKg: 240, costPerKg: 590, taxAmount: 0, discountAmount: 0, shippingAmount: 0, totalCost: 141600, status: 'Received' },
+  { id: 'purchase-002', purchaseNumber: 9, date: '2024-06-24', region: 'Chitral', supplier: 'Chitral Harvest', teaType: 'Black Tea', quantityKg: 180, costPerKg: 540, taxAmount: 0, discountAmount: 0, shippingAmount: 0, totalCost: 97200, status: 'Received' },
+  { id: 'purchase-003', purchaseNumber: 8, date: '2024-06-23', region: 'Peshawar', supplier: 'Frontier Tea Estate', teaType: 'Green Tea', quantityKg: 320, costPerKg: 615, taxAmount: 0, discountAmount: 0, shippingAmount: 0, totalCost: 196800, status: 'In Transit' },
+  { id: 'purchase-004', purchaseNumber: 7, date: '2024-06-23', region: 'Mansehra', supplier: 'Mansehra Organics', teaType: 'Black Tea', quantityKg: 150, costPerKg: 530, taxAmount: 0, discountAmount: 0, shippingAmount: 0, totalCost: 79500, status: 'Received' },
+  { id: 'purchase-005', purchaseNumber: 6, date: '2024-06-22', region: 'Lahore', supplier: 'Lahore Tea Traders', teaType: 'Green Tea', quantityKg: 180, costPerKg: 590, taxAmount: 0, discountAmount: 0, shippingAmount: 0, totalCost: 106200, status: 'Pending' },
+  { id: 'purchase-006', purchaseNumber: 5, date: '2024-06-22', region: 'Swat', supplier: 'Mountain Leaf Co.', teaType: 'Black Tea', quantityKg: 120, costPerKg: 550, taxAmount: 0, discountAmount: 0, shippingAmount: 0, totalCost: 66000, status: 'Received' },
+  { id: 'purchase-007', purchaseNumber: 4, date: '2024-06-21', region: 'Chitral', supplier: 'Chitral Harvest', teaType: 'Green Tea', quantityKg: 160, costPerKg: 605, taxAmount: 0, discountAmount: 0, shippingAmount: 0, totalCost: 96800, status: 'Received' },
+  { id: 'purchase-008', purchaseNumber: 3, date: '2024-06-20', region: 'Peshawar', supplier: 'Frontier Tea Estate', teaType: 'Black Tea', quantityKg: 110, costPerKg: 545, taxAmount: 0, discountAmount: 0, shippingAmount: 0, totalCost: 59950, status: 'In Transit' },
+  { id: 'purchase-009', purchaseNumber: 2, date: '2024-06-19', region: 'Mansehra', supplier: 'Mansehra Organics', teaType: 'Green Tea', quantityKg: 200, costPerKg: 580, taxAmount: 0, discountAmount: 0, shippingAmount: 0, totalCost: 116000, status: 'Received' },
+  { id: 'purchase-010', purchaseNumber: 1, date: '2024-06-18', region: 'Lahore', supplier: 'Lahore Tea Traders', teaType: 'Black Tea', quantityKg: 100, costPerKg: 535, taxAmount: 0, discountAmount: 0, shippingAmount: 0, totalCost: 53500, status: 'Received' },
+]

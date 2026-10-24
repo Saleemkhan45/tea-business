@@ -1,0 +1,21 @@
+.wa-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; margin: 18px 0; color: #334155; min-width: 0; }
+.wa-card h2 { font-size: 19px; margin: 0 0 12px; }
+.wa-card p, .wa-card small { font-size: 13px; color: #64748b; line-height: 1.6; }
+.wa-contact-form { display: grid; gap: 14px; max-width: 640px; }
+.wa-card label { display: flex; flex-direction: column; gap: 7px; font-size: 13px; font-weight: 600; }
+.wa-card input { width: 100%; min-height: 44px; padding: 10px; border: 1px solid #cbd5e1; border-radius: 9px; font: inherit; box-sizing: border-box; background: #fff; color: #334155; }
+.wa-card .wa-checkbox { flex-direction: row; align-items: center; min-height: 44px; }
+.wa-checkbox input { width: 18px; min-height: 18px; flex: none; }
+.wa-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.wa-card a { color: #2563eb; }
+.wa-setup-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.wa-setup-grid dt { font-size: 12px; color: #64748b; }
+.wa-setup-grid dd { margin: 5px 0; overflow-wrap: anywhere; }
+.wa-card :focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
+@media(max-width:760px) {
+  .wa-card { padding: 16px; }
+  .wa-setup-grid { grid-template-columns: 1fr; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .wa-card * { animation: none !important; transition: none !important; }
+}

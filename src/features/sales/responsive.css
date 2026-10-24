@@ -1,0 +1,67 @@
+/* Page layout only: normal document scrolling, with horizontal scrolling confined to the table. */
+.sales-records-page .summary-card-content { min-width: 0; }
+.sales-records-page .summary-card strong,
+.sales-records-page .sales-financial-summary dd { overflow-wrap: anywhere; }
+.sales-records-page .sales-filter-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.sales-records-page .sales-filter-bar > * { min-width: 0; width: 100%; }
+.sales-records-page .search-input { grid-column: span 2; }
+.sales-records-page .filter-control input { min-width: 0; width: 100%; }
+.sales-records-page .sales-table-region { position: relative; min-width: 0; max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; }
+.sales-records-page .table-wrap { overflow: visible; }
+.sales-records-page .sales-table-region:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.sales-table-scroll-hint { margin: 0 0 10px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+html[data-theme='dark'] .sales-records-page input[type='date'] { color-scheme: dark; }
+
+@media (min-width: 901px) {
+  .sales-records-page .page-heading { gap: 20px; flex-wrap: wrap; }
+  .sales-records-page .page-actions { flex-wrap: wrap; }
+}
+@media (min-width: 641px) and (max-width: 1100px) {
+  .sales-records-page .summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .sales-records-page .page-heading { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-bottom: 18px; }
+  .sales-records-page .page-actions { margin-top: 0; flex-wrap: wrap; }
+  .sales-records-page .sales-refresh-control { flex-direction: column; gap: 4px; }
+  .sales-records-page .sales-refresh-control > small { position: static; }
+}
+@media (max-width: 640px) {
+  .sales-records-page .page-heading { display: block; }
+  .sales-records-page .page-actions { display: grid; grid-template-columns: minmax(0, 1fr) 44px; gap: 8px; margin-top: 14px; }
+  .sales-records-page .page-actions > .primary-button { grid-column: 1 / -1; justify-content: center; }
+  .sales-records-page .page-actions .ui-button { min-height: 44px; }
+  .sales-records-page .export-menu { min-width: 0; }
+  .sales-records-page .export-menu-trigger { width: 100%; justify-content: center; }
+  .sales-records-page .sales-refresh-button { width: 44px; padding: 0; }
+  .sales-records-page .sales-refresh-button span,
+  .sales-records-page .sales-refresh-control > small { display: none; }
+  .sales-records-page .summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }
+  .sales-records-page .summary-card { min-height: 96px; padding: 12px 10px; }
+  .sales-records-page .summary-accent { margin-right: 8px; height: 34px; width: 3px; }
+  .sales-records-page .summary-title { font-size: 11px; line-height: 1.4; }
+  .sales-records-page .summary-card strong { font-size: 16px; line-height: 1.4; }
+  .sales-records-page .summary-card small { margin-top: 4px; font-size: 10px; }
+  .sales-records-page .sales-financial-summary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 14px 0; padding-bottom: 14px; }
+  .sales-records-page .sales-financial-summary > div:last-child { grid-column: 1 / -1; }
+  .sales-records-page .sales-financial-summary dd { font-size: 15px; }
+  .sales-records-page .sales-panel-heading { gap: 8px; margin-bottom: 12px; }
+  .sales-records-page .sales-panel-heading .text-link { flex: none; min-height: 44px; font-size: 11px; }
+  .sales-records-page .sales-filter-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding-block: 12px; }
+  .sales-records-page .sales-filter-bar > :is(.search-input, .filter-control) { grid-column: 1 / -1; }
+  .sales-records-page .sales-filter-bar :is(.search-input, .filter-control, .select-menu-trigger) { min-height: 44px; height: auto; }
+  .sales-records-page .sales-filter-bar input { font-size: 16px; }
+  .sales-records-page .sales-select-menu .select-menu-trigger span { white-space: normal; text-align: left; line-height: 1.3; }
+  .sales-records-page .sales-select-menu .select-menu-popover { min-width: 0; max-width: 100%; }
+  .sales-records-page .sales-select-menu .select-menu-option { min-height: 44px; white-space: normal; }
+  .sales-records-page .row-action { width: 44px; height: 44px; }
+  .sales-records-page .table-footer { gap: 12px; flex-wrap: wrap; }
+  .sales-records-page .table-footer .text-link { min-height: 44px; }
+  .sales-records-page .sales-table-panel { padding: 12px; }
+  .sale-modal { max-height: calc(100dvh - 20px); }
+  .sale-modal :is(.modal-close, .modal-footer .ui-button) { min-height: 44px; min-width: 44px; }
+  .sale-modal .form-field :is(input, select, textarea), .sale-modal .select-menu-trigger { font-size: 16px; }
+}
+@media (max-width: 350px) {
+  .sales-records-page .summary-grid { grid-template-columns: minmax(0, 1fr); }
+  .sales-records-page .summary-card { min-height: 82px; }
+}

@@ -1,0 +1,111 @@
+.suppliers-summary{grid-template-columns:repeat(3,1fr)}.suppliers-table-panel{min-width:0;overflow:hidden}.suppliers-table-panel table{min-width:1020px}.supplier-table-row{cursor:pointer;transition:background .16s ease}.supplier-table-row:hover{background:#f8fbff}.supplier-cell{display:flex;align-items:center;gap:9px}.supplier-avatar{display:grid;place-items:center;width:30px;height:30px;color:#377dff;background:#edf4ff;border-radius:8px;font-size:9px;font-weight:700}.supplier-avatar.large{flex:none;width:40px;height:40px;font-size:11px}.supplier-cell strong{display:block}.supplier-cell span:not(.supplier-avatar){display:block;margin-top:3px;color:#9ba5b4;font-size:9px}.tea-types-cell{white-space:nowrap}.suppliers-page .sales-filter-bar select{min-width:135px}.supplier-contact{display:grid;gap:8px;padding-bottom:18px}.supplier-contact div{display:flex;align-items:center;gap:8px;color:#68778d;font-size:11px}.supplier-contact svg{color:#377dff}.supplier-drawer .drawer-stock-hero{margin-top:2px}.supplier-note{padding:12px;margin-top:18px;color:#68778d;background:#f8fafc;border-radius:7px;font-size:10px;line-height:1.5}.tea-checkboxes{border:0;padding:0;margin:0}.tea-checkboxes legend{padding:0;margin-bottom:7px;color:#536076;font-size:11px;font-weight:600}.tea-checkboxes>div{display:flex;gap:16px}.tea-checkboxes label{display:flex;align-items:center;gap:6px;color:#68758a;font-size:11px;font-weight:400}.tea-checkboxes input{accent-color:#377dff}.suppliers-page .sales-summary-card strong{font-size:18px}
+
+.suppliers-page .supplier-avatar{font-size:10px}.suppliers-page .supplier-cell span:not(.supplier-avatar){font-size:11px}.suppliers-page .supplier-contact div,.suppliers-page .supplier-note{font-size:12px}
+@media(max-width:900px){.suppliers-summary{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.suppliers-summary{grid-template-columns:1fr 1fr}.suppliers-summary .sales-summary-card:first-child{grid-column:1 / -1}.supplier-drawer{width:100%}.supplier-drawer .drawer-header,.supplier-drawer .drawer-content{padding-left:18px;padding-right:18px}.supplier-drawer .drawer-footer{padding-left:18px;padding-right:18px}}
+
+.suppliers-page .suppliers-summary{grid-template-columns:repeat(auto-fit,minmax(185px,1fr))}
+.suppliers-page .supplier-filters{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+.supplier-filters>.search-input{flex:2;min-width:220px}.supplier-filters>.select-menu{flex:1;min-width:160px}
+.supplier-toolbar,.supplier-period{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.supplier-period{padding:16px 20px;border-top:1px solid #edf1f7}.supplier-period label{display:grid;gap:6px;font-size:12px;color:#536076}.supplier-period select,.supplier-period input{min-height:42px;border:1px solid #dbe3ef;border-radius:8px;padding:8px;background:white;color:#24364e}.supplier-period small{color:#68778d;max-width:350px;line-height:1.6}
+.supplier-actions-menu{position:fixed;z-index:1300;display:grid;width:200px;padding:6px;border:1px solid #dbe3ef;border-radius:10px;background:white;box-shadow:0 12px 35px #24364e26}.supplier-actions-menu button{border:0;background:transparent;padding:12px;text-align:left;color:#24364e;border-radius:6px;cursor:pointer}.supplier-actions-menu button:hover,.supplier-actions-menu button:focus-visible{background:#edf4ff;outline:2px solid #377dff}
+/* Keep the header and footer outside the modal's single scrolling region. */
+.sale-modal.supplier-modal {
+  display: flex;
+  flex-direction: column;
+  width: min(720px, 100%);
+  max-height: min(90dvh, calc(100dvh - 40px));
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.sale-modal.supplier-modal > .modal-header {
+  flex: 0 0 auto;
+  padding: 20px 24px;
+}
+.supplier-modal .modal-header > div { min-width: 0; }
+.supplier-modal .modal-close { flex: 0 0 auto; }
+.sale-modal.supplier-modal > form {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.supplier-modal .supplier-form-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  padding: 20px 24px 28px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  scroll-padding-block: 20px 28px;
+}
+.supplier-form-fields {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.supplier-modal .form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; }
+.supplier-modal .form-field { min-width: 0; }
+.supplier-modal input, .supplier-modal select, .supplier-modal textarea { box-sizing: border-box; min-width: 0; }
+.supplier-modal input, .supplier-modal select { min-height: 44px; }
+.supplier-modal textarea { max-width: 100%; }
+.supplier-modal input[type=checkbox] { flex: 0 0 18px; width: 18px; height: 18px; min-height: 18px; margin: 2px 0 0; padding: 0; accent-color: #377dff; }
+.supplier-modal .supplier-options {
+  min-width: 0;
+  margin: 0;
+  padding: 12px;
+  border: 1px solid #e3eaf3;
+  border-radius: 8px;
+}
+.supplier-options legend { padding: 0 4px; font-weight: 600; }
+.supplier-modal .supplier-options label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+  padding: 9px 0;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.supplier-options > input { width: 100%; margin-bottom: 8px; }
+.sale-modal.supplier-modal .modal-footer {
+  position: static;
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 0;
+  padding: 16px 24px;
+  border-top: 1px solid var(--line);
+  background: var(--panel, #fff);
+}
+.supplier-modal .modal-footer .ui-button { min-height: 44px; }
+.supplier-modal [role=alert] { overflow-wrap: anywhere; }
+.supplier-offerings { min-width: 0; margin: 0; padding: 14px; border: 1px solid #e3eaf3; border-radius: 8px; }
+.supplier-offerings legend { padding: 0 4px; font-weight: 600; }
+.supplier-offerings > p { margin: 0 0 12px; font-weight: 400; line-height: 1.6; }
+.supplier-offering-row { display: flex; align-items: flex-end; gap: 10px; margin-bottom: 12px; min-width: 0; }
+.supplier-offering-row > label { flex: 1; }
+.supplier-offering-row > button { flex: 0 0 auto; min-height: 44px; }
+.supplier-reconciliation { padding: 14px; border: 1px solid #e6d6ab; border-radius: 8px; line-height: 1.6; }
+.supplier-reconciliation button { margin: 4px 8px 4px 0; }
+@media (max-width: 600px) {
+  .sale-modal.supplier-modal { max-height: min(90dvh, calc(100dvh - 20px)); }
+  .sale-modal.supplier-modal > .modal-header { padding: 16px; }
+  .supplier-modal .supplier-form-body { padding: 16px 16px 24px; }
+  .sale-modal.supplier-modal .modal-footer { padding: 12px 16px; }
+  .supplier-modal .form-grid { grid-template-columns: minmax(0, 1fr); }
+  .supplier-offering-row { flex-wrap: wrap; }
+  .supplier-offering-row > label { flex-basis: 100%; }
+}
+.supplier-drawer{width:min(960px,100vw);max-width:100vw}.supplier-drawer section{padding:16px 0;border-bottom:1px solid #e3eaf3}.supplier-drawer h3{margin:0 0 12px;font-size:15px}.supplier-drawer p{line-height:1.7;overflow-wrap:anywhere}.supplier-profile{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.supplier-profile dt{font-size:12px;color:#68778d}.supplier-profile dd{margin:4px 0 0;font-size:14px;overflow-wrap:anywhere}.supplier-history-scroll{overflow:auto}.supplier-history-scroll table{border-collapse:collapse;min-width:760px;width:100%;font-size:12px}.supplier-history-scroll th,.supplier-history-scroll td{padding:12px 8px;text-align:left;border-bottom:1px solid #e3eaf3}.supplier-history-scroll th{background:#f6f9ff}.supplier-movement-ref{display:block;color:#68778d}.supplier-state,.supplier-loading,.supplier-skeleton{padding:28px}.supplier-skeleton{background:linear-gradient(100deg,#f3f6fa,#e7effb,#f3f6fa);background-size:200% 100%;animation:supplier-loading 1.6s ease infinite}.supplier-toast{display:flex;justify-content:space-between;gap:16px;padding:14px 18px;background:#edf9f3;color:#20633d;border:1px solid #bde3cc;border-radius:8px;margin-bottom:16px}.supplier-toast button{border:0;background:transparent;font-size:20px;color:inherit;cursor:pointer}
+@keyframes supplier-loading{to{background-position:-200% 0}}@media(prefers-reduced-motion:reduce){.supplier-skeleton{animation:none}}
+@media(max-width:600px){.supplier-profile{grid-template-columns:1fr}.supplier-filters>.search-input,.supplier-filters>.select-menu{width:100%;flex-basis:100%;min-width:0}.supplier-period{padding:16px}.suppliers-page .sales-panel-heading{align-items:flex-start;gap:12px;flex-wrap:wrap}}

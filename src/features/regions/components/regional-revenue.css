@@ -1,0 +1,19 @@
+.regional-revenue{min-width:0;margin-top:18px;padding:20px;border:1px solid var(--line,#dce3ed);border-radius:16px;background:var(--panel,#fff);color:var(--ink,#182b49)}
+.regional-revenue-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.regional-revenue-heading h3{display:flex;align-items:center;gap:9px;margin:0;font-size:17px;font-weight:650}
+.regional-revenue-heading h3 svg{color:#3b82f6;flex-shrink:0}
+.regional-revenue-heading .select-menu{min-width:120px}
+.regional-revenue-range{font-size:12px;overflow-wrap:anywhere;margin:12px 0 6px}
+.regional-revenue-context{font-size:12px;line-height:1.5;opacity:.75;margin:6px 0}
+.regional-revenue-total{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin:22px 0 4px}
+.regional-revenue-total>span{font-size:12px;opacity:.75}
+.regional-revenue-total strong{font-size:clamp(24px,4vw,34px);line-height:1.15;letter-spacing:-.6px;overflow-wrap:anywhere;max-width:100%}
+.regional-revenue-total small{display:flex;align-items:center;gap:7px;font-size:12px}
+.regional-revenue-total i{width:8px;height:8px;border-radius:3px;background:#3b82f6}
+.regional-revenue-chart{width:100%;height:245px;min-width:0;margin-top:10px}
+.regional-revenue-tooltip{display:flex;flex-direction:column;gap:7px;padding:12px;border:1px solid var(--line,#dce3ed);border-radius:10px;background:var(--panel,#fff);color:var(--ink,#182b49);box-shadow:0 8px 28px #0002;font-size:12px;max-width:230px;white-space:normal;overflow-wrap:anywhere}
+.regional-revenue-values{margin-top:10px;font-size:12px}.regional-revenue-values li{overflow-wrap:anywhere}
+.regional-revenue-loading{height:160px;display:grid;place-items:center}
+@media(max-width:430px){.regional-revenue{padding:12px}.regional-revenue-heading{gap:12px}.regional-revenue-heading h3{font-size:15px}.regional-revenue-chart{height:220px}}
+
+html[data-theme='dark'] .regional-revenue,html[data-theme='dark'] .regional-revenue-tooltip{background:#152033;color:#e2e8f0;border-color:#334155}

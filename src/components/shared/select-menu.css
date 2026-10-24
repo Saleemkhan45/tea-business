@@ -1,0 +1,5 @@
+/* Portal coordinates are viewport-relative; load this with the shared component. */
+.select-menu-popover.select-menu-floating { position: fixed; z-index: 120; box-sizing: border-box; min-width: 0; margin: 0; overflow-y: auto; overscroll-behavior: contain; animation: none; }
+.select-menu-floating::before { display: none; }
+.select-menu-floating .select-menu-search { box-sizing: border-box; width: 100%; min-width: 0; height: 44px; padding: 10px; margin-bottom: 6px; border: 1px solid var(--line); border-radius: 6px; color: var(--ink); background: var(--panel); font: inherit; }
+.select-menu-floating .select-menu-option { min-height: 44px; height: auto; white-space: normal; overflow-wrap: anywhere; }

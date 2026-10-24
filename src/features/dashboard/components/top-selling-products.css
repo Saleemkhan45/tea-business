@@ -1,0 +1,18 @@
+﻿.top-products-panel .top-products-scope { display: grid; gap: 4px; margin: -3px 0 14px; color: var(--muted); font-size: 10px; line-height: 1.5; }
+.top-products-panel .top-products-scope strong { color: var(--ink); font-size: 11px; }
+.top-products-panel .top-product-banner { align-items: flex-start; height: auto; min-height: 34px; line-height: 1.6; }
+.top-products-panel .top-product-banner svg { flex: none; margin-top: 3px; }
+.top-products-panel .top-product-banner span, .top-products-panel .ranked-product strong { white-space: normal; overflow-wrap: anywhere; }
+.top-products-panel .ranked-product { grid-template-columns: 26px minmax(0, 1fr) auto; gap: 10px; min-height: 52px; }
+.top-products-panel .top-products-quantity { color: var(--ink); font-size: 11px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.top-products-panel .top-products-state { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; min-height: 280px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.top-products-panel .top-products-refresh { color: var(--muted); font-size: 10px; line-height: 1.6; }
+.top-products-skeleton { display: grid; gap: 0; min-height: 280px; }
+.top-products-skeleton > div { display: flex; align-items: center; gap: 10px; min-height: 52px; }
+.top-products-skeleton i, .top-products-skeleton span, .top-products-skeleton b { display: block; height: 16px; border-radius: 4px; background: color-mix(in srgb, var(--muted) 15%, transparent); animation: top-products-pulse 1.4s ease-in-out infinite; }
+.top-products-skeleton i { width: 26px; height: 26px; border-radius: 50%; }
+.top-products-skeleton span { flex: 1; }
+.top-products-skeleton b { width: 48px; }
+@keyframes top-products-pulse { 50% { opacity: .45; } }
+@media (max-width: 600px) { .top-products-panel .ranked-product { gap: 8px; } .top-products-panel .ranked-product strong { font-size: 11px; } }
+@media (prefers-reduced-motion: reduce) { .top-products-skeleton * { animation: none; } .top-products-panel .rank-track span { transition: none; } }

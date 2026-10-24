@@ -1,0 +1,12 @@
+export const REPORT_REGIONS = ['All Regions', 'Islamabad', 'Lahore', 'Peshawar', 'Karachi', 'Rawalpindi'] as const
+export const REPORT_TEA_TYPES = ['All Tea Types', 'Green Tea', 'Black Tea'] as const
+export const REPORT_CATEGORIES = ['Green Tea', 'Black Tea', 'Jasmine Tea', 'Herbal Tea', 'Kashmiri Chai'] as const
+export type ReportRegion = (typeof REPORT_REGIONS)[number]
+export type ReportTeaType = (typeof REPORT_TEA_TYPES)[number]
+export type ReportCategory = (typeof REPORT_CATEGORIES)[number]
+export type SalesReportStatus = 'Completed' | 'Pending' | 'Refunded' | 'Voided'
+export type ReportPoint = { label: string; value: number }
+export type ReportRegionRow = { region: Exclude<ReportRegion, 'All Regions'>; sales: number; purchases: number; teaSold: number; profit: number }
+export type ReportTeaRow = { teaType: Exclude<ReportTeaType, 'All Tea Types'>; quantitySold: number; revenue: number; averagePrice: number }
+export type SalesReportRecord = { id: string; date: string; category: string; region: string; regionId?: string; itemsSold?: number; totalOrders: number; grandTotal: number; status: SalesReportStatus; soldBy?: string; enteredBy?: string }
+export type ReportsData = { salesTrend: ReportPoint[]; purchaseTrend: ReportPoint[]; regions: ReportRegionRow[]; tea: ReportTeaRow[]; sales: SalesReportRecord[] }

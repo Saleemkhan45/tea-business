@@ -1,0 +1,79 @@
+.app-shell .sidebar { height: 100dvh; }
+.app-shell .sidebar .nav { overflow-y: auto; overscroll-behavior: contain; }
+.app-shell :is(.mobile-menu, .mobile-close, .icon-button, .admin-trigger, .nav-item) {
+  touch-action: manipulation;
+}
+.app-shell :is(button, a):focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.app-shell .sidebar-toggle {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  touch-action: manipulation;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+.app-shell .sidebar-toggle:hover { color: var(--blue); background: color-mix(in srgb, var(--blue) 8%, var(--panel)); }
+.app-shell .sidebar .nav-item svg { flex-shrink: 0; }
+.app-shell .workspace-footer { flex-shrink: 0; }
+.sidebar-tooltip {
+  position: fixed;
+  z-index: 100;
+  transform: translateY(-50%);
+  padding: 7px 10px;
+  border-radius: 6px;
+  background: #172033;
+  color: #fff;
+  font-size: 12px;
+  line-height: 18px;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 4px 12px #17203326;
+}
+@media (min-width: 901px) {
+  .app-shell .sidebar { width: 214px; transition: width 225ms ease; }
+  .app-shell .sidebar:not(.is-collapsed) { width: 214px; }
+  .app-shell .main-shell { width: calc(100% - 214px); margin-left: 214px; transition: width 225ms ease, margin-left 225ms ease; }
+  .app-shell .sidebar.is-collapsed { width: 72px; }
+  .app-shell .sidebar.is-collapsed .workspace-sidebar { display: flex; }
+  .app-shell .is-collapsed + .main-shell { width: calc(100% - 72px); margin-left: 72px; }
+  .app-shell .sidebar.is-collapsed .brand { flex-direction: column; flex-basis: 96px; height: 96px; justify-content: center; padding-inline: 0; gap: 8px; }
+  .app-shell .sidebar.is-collapsed :is(.brand-copy, .nav-label, .nav-item-label, .workspace-footer span) { display: none; }
+  .app-shell .sidebar.is-collapsed .nav { padding: 24px 12px 12px; }
+  .app-shell .sidebar.is-collapsed .nav-group { margin-bottom: 12px; }
+  .app-shell .sidebar.is-collapsed .nav-item { justify-content: center; min-height: 44px; padding: 0; gap: 0; }
+  .app-shell .sidebar.is-collapsed .workspace-footer { justify-content: center; padding-inline: 0; }
+}
+@media (max-width: 900px) {
+  .app-shell, .app-shell .main-shell, .app-shell #main-content { min-width: 0; }
+  .app-shell .main-shell { width: 100%; margin-left: 0; }
+  .app-shell #main-content { width: 100%; max-width: 100%; }
+  .app-shell .topbar-left { min-width: 0; }
+  .app-shell .header-actions { flex: none; }
+  .app-shell .topbar .header-search.global-search-trigger { width: 44px; min-width: 44px; height: 44px; flex: 0 0 44px; color: var(--muted); background: var(--panel); border-color: var(--line); }
+  .app-shell .mobile-menu { color: var(--ink); }
+  .app-shell .sidebar-toggle { display: none; }
+  .app-shell .sidebar { max-width: calc(100vw - 48px); transition: transform .2s ease; }
+  .app-shell .sidebar .mobile-close,
+  .app-shell .mobile-menu { width: 44px; height: 44px; flex: 0 0 44px; }
+  .app-shell .sidebar .brand { min-height: 64px; padding-left: 16px; }
+  .app-shell .sidebar .nav-item { min-height: 44px; }
+  .app-shell .scrim { position: fixed; inset: 0; display: block; background: #10213966; }
+  .app-shell .topbar { padding-inline: max(12px, env(safe-area-inset-left)) max(12px, env(safe-area-inset-right)); min-height: 64px; height: auto; }
+  .app-shell .header-actions { gap: 2px; }
+  .app-shell .header-actions :is(.icon-button, .admin-trigger) { width: 44px; min-width: 44px; height: 44px; padding: 0; }
+  .app-shell .mobile-brand { margin-left: 4px; font-size: 13px; white-space: nowrap; }
+  .app-shell .main-shell main { padding-inline: max(12px, env(safe-area-inset-left)) max(12px, env(safe-area-inset-right)); padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+}
+@media (max-width: 380px) {
+  .app-shell .report-shortcut { display: none !important; }
+  .app-shell .mobile-brand { max-width: 60px; font-size: 12px; white-space: normal; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app-shell .sidebar, .app-shell .main-shell { transition: none; }
+}

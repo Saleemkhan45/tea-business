@@ -1,0 +1,15 @@
+.loading-spinner { display: inline-flex; align-items: center; justify-content: center; gap: 10px; flex-shrink: 0; color: inherit; vertical-align: middle; }
+.loading-spinner-visual { display: inline-flex; align-items: center; justify-content: center; }
+.loading-spinner-label { font-size: 13px; font-weight: 500; }
+.ui-button[aria-busy='true'] { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.ui-button[aria-busy='true'] > svg { display: none; }
+.query-freshness { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 12px; color: var(--muted); margin: 8px 0; }
+.query-freshness.is-stale { color: var(--ink); padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+.kpi-skeleton { display: inline-block; width: min(140px, 100%); height: 28px; border-radius: 6px; background: color-mix(in srgb, var(--muted) 15%, var(--panel)); }
+.dashboard-analytics-loading { min-height: 260px; display: grid; place-items: center; color: var(--muted); }
+.dashboard-kpi-skeleton .stat-value { min-height: 32px; }
+.dashboard-freshness-slot { display: flow-root; min-height: 34px; }
+.dashboard-notice { min-height: 18px; margin: 0; font-size: 12px; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) {
+  .loading-spinner *, .loading-spinner *::before, .loading-spinner *::after { animation: none !important; transition: none !important; }
+}

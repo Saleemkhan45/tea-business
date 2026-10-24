@@ -1,0 +1,24 @@
+.modal-backdrop.catalog-product-backdrop { z-index: 150; padding: 20px; background: #17203380; }
+.sale-modal.catalog-product-modal { width: min(100%, 600px); max-height: calc(100dvh - 40px); background: #fff; }
+.sale-modal.catalog-product-modal > form { display: flex; flex-direction: column; min-height: 0; overflow: hidden; padding: 0; }
+.catalog-product-body { min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 20px 25px; }
+.catalog-product-body fieldset { display: flex; flex-direction: column; gap: 16px; min-width: 0; margin: 0; padding: 0; border: 0; }
+.catalog-product-body h3 { margin: 0; color: var(--ink); font-size: 13px; }
+.catalog-product-body h3:not(:first-child) { padding-top: 8px; border-top: 1px solid var(--line); }
+.catalog-product-body input, .catalog-product-body select { box-sizing: border-box; min-width: 0; height: 42px; }
+.catalog-product-body input[readonly] { background: #f8fafc; }
+.sale-modal.catalog-product-modal .modal-footer { position: static; flex: none; display: flex; justify-content: flex-end; gap: 10px; margin: 0; padding: 16px 25px; border-top: 1px solid var(--line); background: #fff; }
+.catalog-product-hint { margin: 0; color: #718096; font-size: 12px; line-height: 1.6; }
+.catalog-field-error { color: #bd3434; font-size: 12px; }
+@media (max-width: 600px) {
+  .modal-backdrop.catalog-product-backdrop { padding: 12px; }
+  .sale-modal.catalog-product-modal { max-height: calc(100dvh - 24px); }
+  .sale-modal.catalog-product-modal .modal-header, .catalog-product-body { padding: 18px; }
+  .sale-modal.catalog-product-modal .modal-footer { padding: 14px 18px; }
+}
+.catalog-custom-fields { display: flex; flex-direction: column; gap: 16px; animation: catalog-fields-reveal .16s ease-out; }
+.catalog-stock-confirm { display: flex; align-items: flex-start; gap: 10px; color: #536076; font-size: 12px; line-height: 1.6; }
+.catalog-stock-confirm input { flex: 0 0 auto; width: 18px; height: 18px; margin-top: 2px; }
+.catalog-stock-confirm .catalog-field-error { display: block; }
+@keyframes catalog-fields-reveal { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .catalog-custom-fields { animation: none; } }

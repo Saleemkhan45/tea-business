@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-D3jfb0Ew.js";import{PurchasesPage as t}from"./PurchasesPage-_Kp-G9mR.js";var n=e();function r(){return(0,n.jsx)(t,{historyOnly:!0})}export{r as PurchaseHistoryPage};
