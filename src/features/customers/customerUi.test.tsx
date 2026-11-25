@@ -29,6 +29,7 @@ vi.mock('../customer-ledger', async importOriginal => ({
   useCustomerDirectory: queries.directory,
   useCustomerById: queries.profile,
   useCreateCustomer: vi.fn(() => ({ isPending: false, mutateAsync: vi.fn() })),
+  useDeleteCustomer: vi.fn(() => ({ isPending: false, mutate: vi.fn(), reset: vi.fn(), error: null })),
   useCreateCustomerPurchase: vi.fn(),
   useCreateCustomerPayment: vi.fn(() => ({ isPending: false })),
 }))

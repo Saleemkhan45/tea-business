@@ -181,6 +181,10 @@ export async function createCustomer(input: CreateCustomerInput) {
   return result.data
 }
 
+export function deleteCustomer(customerId: string) {
+  return request<{ deleted: boolean; id: string }>(customerPath(customerId), 'DELETE')
+}
+
 export function getCustomerLedgerSummary(customerId: string, referenceDate?: BusinessDate) {
   return request<SummaryApiResponse>(
     `${customerPath(customerId)}/summary${queryString([['referenceDate', referenceDate]])}`,

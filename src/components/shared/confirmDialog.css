@@ -1,0 +1,13 @@
+.confirm-dialog-backdrop { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 20px; background: rgb(15 23 42 / 45%); }
+.confirm-dialog { width: min(440px, 100%); padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel, #fff); color: var(--ink); box-shadow: 0 20px 50px rgb(15 23 42 / 25%); }
+.confirm-dialog h2 { margin: 0 0 10px; font-size: 18px; }
+.confirm-dialog-message { font-size: 14px; line-height: 1.55; color: var(--muted, inherit); }
+.confirm-dialog-message p { margin: 0 0 8px; }
+.confirm-dialog-error { margin: 12px 0 0; padding: 10px 12px; border-radius: 8px; color: var(--danger, #b42318); background: color-mix(in srgb, var(--danger, #b42318) 8%, transparent); font-size: 13px; line-height: 1.5; }
+.confirm-dialog-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+.confirm-dialog-danger.ui-button { color: #fff; border-color: var(--danger, #b42318); background: var(--danger, #b42318); }
+.confirm-dialog-danger.ui-button:hover:not(:disabled) { background: color-mix(in srgb, var(--danger, #b42318) 85%, #000); }
+.ui-button.danger-outline { color: var(--danger, #b42318); border-color: color-mix(in srgb, var(--danger, #b42318) 35%, var(--line)); }
+.ui-button.danger-outline:hover:not(:disabled) { background: color-mix(in srgb, var(--danger, #b42318) 8%, var(--panel, #fff)); }
+.icon-button-danger { display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; border: 0; border-radius: 6px; background: transparent; color: var(--danger, #b42318); font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
+.icon-button-danger:hover { background: color-mix(in srgb, var(--danger, #b42318) 8%, transparent); }
