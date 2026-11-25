@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useState, type FormEvent } from 'react'
-import { ArrowRight, ChevronLeft, ChevronRight, Plus, RefreshCw, Search, UsersRound, X } from 'lucide-react'
+import { ArrowRight, ChevronLeft, ChevronRight, Plus, RefreshCw, Search, Trash2, UsersRound, X } from 'lucide-react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { Badge, Button, PageContainer, Panel, SelectMenu, StateBlock, SuccessToast, Table, TableBody, TableHead } from '../../../components/shared'
+import { Badge, Button, ConfirmDialog, PageContainer, Panel, SelectMenu, StateBlock, SuccessToast, Table, TableBody, TableHead } from '../../../components/shared'
 import { formatPKR } from '../../../business/utils/formatters'
 import { ROUTES } from '../../../constants/routes'
-import { useCustomerDirectory, type CustomerDirectoryStatus } from '../../customer-ledger'
+import { useCustomerDirectory, useDeleteCustomer, type CustomerDirectoryStatus } from '../../customer-ledger'
+import { useAuthStore } from '../../auth/auth.store'
 import { AddCustomerModal } from '../components/AddCustomerModal'
 import { useSaleCustomerNavigation } from '../../sales/useSaleCustomerNavigation'
 import '../customers.css'
@@ -43,6 +44,27 @@ export function CustomersPage() {
   const customersQuery = useCustomerDirectory(filters)
   const customers = customersQuery.data?.customers ?? []
   const pagination = customersQuery.data?.pagination
+  const role = useAuthStore(state => state.session?.user.role)
+  const canDelete = role === 'owner' || role === 'admin'
+  const deleteMutation = useDeleteCustomer()
+  const [pendingDelete, setPendingDelete] = useState<{ id: string; name: string } | null>(null)
+
+  function closeDeleteDialog() {
+    setPendingDelete(null)
+    deleteMutation.reset()
+  }
+
+  function confirmDelete() {
+    if (!pendingDelete) return
+    const { id, name } = pendingDelete
+    deleteMutation.mutate(id, {
+      onSuccess: () => {
+        closeDeleteDialog()
+        setSuccessMessage(`${name} was deleted.`)
+        if (customers.length === 1 && page > 1) updateDirectoryParams({ page: page - 1 })
+      },
+    })
+  }
 
   useEffect(() => {
     setSearchInput(search)
@@ -103,7 +125,7 @@ export function CustomersPage() {
       {!customersQuery.isPending && !customersQuery.isError && customers.length === 0 && <StateBlock icon={<UsersRound size={24} />} title="No customers found" message={hasFilters ? 'Try changing search or status filters.' : 'No customers have been added for this shop yet.'} action={hasFilters ? <button type="button" className="text-link" onClick={clearFilters}><X size={14} /> Clear filters</button> : <Button variant="primary" onClick={() => setIsAddCustomerOpen(true)}><Plus size={15} /> Add Customer</Button>} />}
 
       {!customersQuery.isPending && !customersQuery.isError && customers.length > 0 && <>
-        <Table className="customer-directory-table"><caption className="sr-only">Customer directory results</caption><TableHead><tr><th scope="col">Customer</th><th scope="col">Phone</th><th scope="col">Address</th><th scope="col">Current Khata</th><th scope="col">Status</th><th scope="col"><span className="sr-only">Actions</span></th></tr></TableHead><TableBody>{customers.map(customer => <tr key={customer.id}><td><Link className="customer-name-link" to={`${ROUTES.customers}/${customer.id}`}><strong>{customer.name}</strong></Link></td><td>{customer.phone || 'Not recorded'}</td><td>{customer.address || 'Not recorded'}</td><td><strong className={customer.currentBalancePkr > 0 ? 'customer-balance-due' : 'customer-balance-clear'}>{formatPKR(customer.currentBalancePkr)}</strong></td><td><Badge tone={customer.status === 'active' ? 'success' : 'warning'}>{statusLabel(customer.status)}</Badge></td><td><Link className="customer-open-link" to={`${ROUTES.customers}/${customer.id}`} aria-label={`Open ${customer.name} ledger`}>Open <ArrowRight size={14} aria-hidden="true" /></Link></td></tr>)}</TableBody></Table>
+        <Table className="customer-directory-table"><caption className="sr-only">Customer directory results</caption><TableHead><tr><th scope="col">Customer</th><th scope="col">Phone</th><th scope="col">Address</th><th scope="col">Current Khata</th><th scope="col">Status</th><th scope="col"><span className="sr-only">Actions</span></th></tr></TableHead><TableBody>{customers.map(customer => <tr key={customer.id}><td><Link className="customer-name-link" to={`${ROUTES.customers}/${customer.id}`}><strong>{customer.name}</strong></Link></td><td>{customer.phone || 'Not recorded'}</td><td>{customer.address || 'Not recorded'}</td><td><strong className={customer.currentBalancePkr > 0 ? 'customer-balance-due' : 'customer-balance-clear'}>{formatPKR(customer.currentBalancePkr)}</strong></td><td><Badge tone={customer.status === 'active' ? 'success' : 'warning'}>{statusLabel(customer.status)}</Badge></td><td><div className="customer-row-actions"><Link className="customer-open-link" to={`${ROUTES.customers}/${customer.id}`} aria-label={`Open ${customer.name} ledger`}>Open <ArrowRight size={14} aria-hidden="true" /></Link>{canDelete && <button type="button" className="icon-button-danger" onClick={() => setPendingDelete({ id: customer.id, name: customer.name })} aria-label={`Delete ${customer.name}`}><Trash2 size={14} aria-hidden="true" /> Delete</button>}</div></td></tr>)}</TableBody></Table>
         {pagination && <div className="customer-directory-footer"><span>Page {currentPage} of {totalPages} | {pagination.total} total</span><div><Button disabled={currentPage <= 1} onClick={() => updateDirectoryParams({ page: currentPage - 1 })} aria-label="Previous customer page"><ChevronLeft size={15} /> Previous</Button><Button disabled={currentPage >= totalPages} onClick={() => updateDirectoryParams({ page: currentPage + 1 })} aria-label="Next customer page">Next <ChevronRight size={15} /></Button></div></div>}
       </>}
     </Panel>
@@ -112,6 +134,15 @@ export function CustomersPage() {
       if (fromSale && customerId) navigation.returnToSale(customerId)
       else setSuccessMessage(`${customerName} was added successfully.`)
     }} />}
+    {pendingDelete && <ConfirmDialog
+      title="Delete customer?"
+      message={<p>Permanently delete <strong>{pendingDelete.name}</strong>? This cannot be undone. Customers with sales or khata history cannot be deleted.</p>}
+      confirmLabel="Delete Customer"
+      busy={deleteMutation.isPending}
+      error={deleteMutation.error?.message}
+      onConfirm={confirmDelete}
+      onCancel={closeDeleteDialog}
+    />}
     <SuccessToast message={successMessage} onDismiss={() => setSuccessMessage('')} />
   </PageContainer>
 }

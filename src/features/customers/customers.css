@@ -363,3 +363,5 @@ html[data-theme='dark'] .customer-calendar-cell.level-medium { color: #ddf4e5; b
 .customer-modal form > .customer-form-error { margin: 0; padding: 0 21px 18px; }
 .customer-refresh-status { margin: 0 0 12px; color: var(--muted); font-size: 12px; }
 @media (max-width: 600px) { .customer-payment-context { grid-template-columns: 1fr; } }
+
+.customer-row-actions { display: flex; align-items: center; justify-content: flex-end; gap: 8px; white-space: nowrap; }

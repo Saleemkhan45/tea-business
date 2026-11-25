@@ -1,5 +1,6 @@
 export { Badge } from './Badge'
 export { Button } from './Button'
+export { ConfirmDialog } from './ConfirmDialog'
 export { LoadingSpinner } from './LoadingSpinner'
 export { QueryFreshness } from './QueryFreshness'
 export { DateRangeMenu, createDateRange, getDefaultDateRange, getPakistanToday } from './DateRangeMenu'

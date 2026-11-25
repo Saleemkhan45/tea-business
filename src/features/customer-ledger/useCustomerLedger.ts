@@ -9,6 +9,7 @@ import {
   createCustomerPayment,
   createCustomerPurchase,
   createCustomer,
+  deleteCustomer,
   getCustomerById,
   getCustomerDirectory,
   getCustomerLedger,
@@ -90,6 +91,21 @@ export function useCreateCustomer() {
     onSuccess: ({ customer }) => {
       queryClient.setQueryData(scopedKey(customerLedgerKeys.profile(customer.id), user), { customer })
       return Promise.all([queryClient.invalidateQueries({ queryKey: customerLedgerKeys.directory().slice(0, -1) }), queryClient.invalidateQueries({ queryKey: ['regional'] })])
+    },
+  })
+}
+
+export function useDeleteCustomer() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: (customerId: string) => deleteCustomer(requireCustomerId(customerId)),
+    retry: false,
+    onSuccess: (_result, customerId) => {
+      queryClient.removeQueries({ queryKey: customerLedgerKeys.customer(customerId) })
+      return Promise.all([
+        queryClient.invalidateQueries({ queryKey: customerLedgerKeys.directory().slice(0, -1) }),
+        queryClient.invalidateQueries({ queryKey: ['collections'] }),
+      ])
     },
   })
 }
